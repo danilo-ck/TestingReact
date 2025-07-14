@@ -11,6 +11,7 @@ function App() {
   const [password, setPassword] = useState('');
   const [mode, setMode] = useState('login'); // puede ser 'login' o 'register'
   const [message, setMessage] = useState('');
+  const [errors, setErrors] = useState([]); // Array de errores separado
   const [loading, setLoading] = useState(false); // Estado de carga
 
   // Cambia entre login y registro
@@ -18,6 +19,7 @@ function App() {
     console.log('Cambiando modo de formulario');
     setMode(mode === 'login' ? 'register' : 'login');
     setMessage('');
+    setErrors([]); // Limpiar errores
     setEmail('');
     setPassword('');
   };
@@ -27,38 +29,39 @@ function App() {
     console.log('Enviando formulario...');
     setLoading(true); // Activar estado de carga
     setMessage(''); // Limpiar mensajes anteriores
+    setErrors([]); // Limpiar errores anteriores
     
     // Simular delay de red realista
     await new Promise(resolve => setTimeout(resolve, 1500));
     
     let isValid = true;
-    let errors = [];
+    let validationErrors = [];
 
     if (!email.includes('@') || !email.endsWith('.com')) {
-      errors.push('Email inválido');
+      validationErrors.push('Email inválido');
       isValid = false;
     }
 
     if (password.trim().length <= 5) {
-      errors.push('La contraseña debe tener más de 5 caracteres');
+      validationErrors.push('La contraseña debe tener más de 5 caracteres');
       isValid = false;
     }
 
     // Validación adicional 1: no puede contener "123"
     if (password.includes('123')) {
-      errors.push('La contraseña no debe contener secuencias fáciles como "123"');
+      validationErrors.push('La contraseña no debe contener secuencias fáciles como "123"');
       isValid = false;
     }
 
     // Validación adicional 2: al menos una letra mayúscula
     if (!/[A-Z]/.test(password)) {
-      errors.push('La contraseña debe tener al menos una letra mayúscula');
+      validationErrors.push('La contraseña debe tener al menos una letra mayúscula');
       isValid = false;
     }
 
     // Validación adicional 3: al menos un número
     if (!/\d/.test(password)) {
-      errors.push('La contraseña debe tener al menos un número');
+      validationErrors.push('La contraseña debe tener al menos un número');
       isValid = false;
     }
 
@@ -66,8 +69,8 @@ function App() {
       console.log('Formulario válido');
       setMessage(`✅ ${mode === 'login' ? 'Login' : 'Registro'} exitoso`);
     } else {
-      console.log('Errores encontrados:', errors);
-      setMessage(`❌ ${errors.join(', ')}`);
+      console.log('Errores encontrados:', validationErrors);
+      setErrors(validationErrors); // Guardar errores como array
     }
     
     setLoading(false); // Desactivar estado de carga
@@ -123,15 +126,23 @@ function App() {
           variant="ghost"
         />
       </div>
+      {/* Mostrar mensaje de éxito o errores */}
       {message && (
-        <div className={`
-          mt-4 p-4 rounded-lg text-sm font-medium
-          ${message.includes('✅') 
-            ? 'bg-green-50 text-green-700 border border-green-200' 
-            : 'bg-red-50 text-red-700 border border-red-200'
-          }
-        `}>
+        <div className="mt-4 p-4 rounded-lg text-sm font-medium bg-green-50 text-green-700 border border-green-200">
           {message}
+        </div>
+      )}
+      
+      {errors.length > 0 && (
+        <div className="mt-4 p-4 rounded-lg text-sm font-medium bg-red-50 text-red-700 border border-red-200">
+          <div className="space-y-2">
+            <div className="font-semibold">❌ Errores encontrados:</div>
+            {errors.map((error, index) => (
+              <div key={index} className="text-sm pl-4 border-red-300">
+                • {error}
+              </div>
+            ))}
+          </div>
         </div>
       )}
     </Container>
