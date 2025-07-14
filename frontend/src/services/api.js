@@ -43,8 +43,9 @@ apiClient.interceptors.response.use(
     console.error('❌ Error request:', error.request);
     console.error('❌ Error response:', error.response);
     
-    if (error.response?.status === 401) {
-      // Token expirado o inválido
+    // Solo redirigir en caso de 401 y si ya estamos autenticados
+    if (error.response?.status === 401 && authService.isAuthenticated()) {
+      console.log('🔒 Token expirado, redirigiendo al login');
       localStorage.removeItem('authToken');
       localStorage.removeItem('user');
       window.location.href = '/';

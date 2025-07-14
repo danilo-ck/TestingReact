@@ -1,9 +1,9 @@
 import React from 'react';
 
 // Button: componente reutilizable para botones
-// Props: text (texto del botón), onClick (función que se ejecuta al hacer clic), variant (estilo del botón), loading (estado de carga)
+// Props: text (texto del botón), onClick (función que se ejecuta al hacer clic), variant (estilo del botón), loading (estado de carga), fullWidth (ancho completo)
 // Ahora con diseño moderno usando Tailwind CSS y efectos avanzados
-const Button = ({ text, onClick, variant = 'primary', loading = false }) => {
+const Button = ({ text, onClick, variant = 'primary', loading = false, fullWidth = false }) => {
   // Estilos base que comparten todos los botones
   const baseStyles = `
     px-6 py-3                    /* Padding generoso */
@@ -14,13 +14,14 @@ const Button = ({ text, onClick, variant = 'primary', loading = false }) => {
     focus:outline-none           /* Sin outline por defecto */
     focus:ring-2                 /* Anillo de enfoque */
     focus:ring-offset-2          /* Espacio del anillo */
-    w-full                       /* Ancho completo */
-    mb-3                         /* Margen inferior */
     border-0                     /* Sin borde por defecto */
     transform                    /* Habilitar transformaciones */
     hover:scale-105              /* Efecto hover de escala */
     active:scale-95              /* Efecto al presionar */
     animate-slideIn              /* Animación de entrada */
+    inline-flex                  /* Flex en línea */
+    items-center                 /* Centrar elementos */
+    justify-center               /* Centrar contenido */
   `;
 
   // Estilos específicos según el variant
@@ -34,11 +35,28 @@ const Button = ({ text, onClick, variant = 'primary', loading = false }) => {
       hover:shadow-lg              /* Sombra más grande al hover */
     `,
     secondary: `
-      bg-transparent              /* Fondo transparente */
-      text-primary-600            /* Texto con tu color */
-      border border-primary-500   /* Borde con tu color */
-      hover:bg-primary-50         /* Fondo sutil al hover */
-      focus:ring-primary-200      /* Anillo de enfoque */
+      bg-gray-500                  /* Fondo gris */
+      text-white                   /* Texto blanco */
+      hover:bg-gray-600            /* Hover más oscuro */
+      focus:ring-gray-200          /* Anillo de enfoque */
+      shadow-md                    /* Sombra media */
+      hover:shadow-lg              /* Sombra más grande al hover */
+    `,
+    danger: `
+      bg-red-500                   /* Fondo rojo */
+      text-white                   /* Texto blanco */
+      hover:bg-red-600             /* Hover más oscuro */
+      focus:ring-red-200           /* Anillo de enfoque */
+      shadow-md                    /* Sombra media */
+      hover:shadow-lg              /* Sombra más grande al hover */
+    `,
+    warning: `
+      bg-orange-500                /* Fondo naranja */
+      text-white                   /* Texto blanco */
+      hover:bg-orange-600          /* Hover más oscuro */
+      focus:ring-orange-200        /* Anillo de enfoque */
+      shadow-md                    /* Sombra media */
+      hover:shadow-lg              /* Sombra más grande al hover */
     `,
     ghost: `
       bg-transparent              /* Fondo transparente */
@@ -53,7 +71,7 @@ const Button = ({ text, onClick, variant = 'primary', loading = false }) => {
     <button 
       onClick={onClick} 
       disabled={loading}
-      className={`${baseStyles} ${variantStyles[variant]} ${loading ? 'opacity-75 cursor-not-allowed' : ''}`}
+      className={`${baseStyles} ${variantStyles[variant]} ${fullWidth ? 'w-full mb-3' : ''} ${loading ? 'opacity-75 cursor-not-allowed' : ''}`}
       style={{ outline: 'none', border: variant === 'ghost' ? 'none' : undefined }}
     >
       {loading && variant === 'primary' ? (

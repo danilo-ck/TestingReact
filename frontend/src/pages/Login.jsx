@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import TextInput from '../components/TextInput';
-import Button from '../components/Button';
-import Container from '../components/Container';
+import TextInput from '../components/TextInput.jsx';
+import Button from '../components/Button.jsx';
+import Container from '../components/Container.jsx';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -117,11 +117,13 @@ const Login = () => {
           onClick={handleSubmit}
           variant="primary"
           loading={loading}
+          fullWidth={true}
         />
         <Button
           text={mode === 'login' ? '¿No tienes cuenta?' : '¿Ya tienes cuenta?'}
           onClick={toggleMode}
           variant="ghost"
+          fullWidth={true}
         />
       </div>
 

@@ -49,7 +49,7 @@ export const AuthProvider = ({ children }) => {
   // Función de login
   const login = async (credentials) => {
     try {
-      setLoading(true);
+      // No usar setLoading(true) aquí para evitar interferir con las rutas
       console.log('🔑 Intentando login con:', credentials.email);
       
       const response = await authService.login(credentials);
@@ -63,19 +63,36 @@ export const AuthProvider = ({ children }) => {
       return { success: true, data: response };
     } catch (error) {
       console.error('❌ Error en login:', error);
-      return { 
-        success: false, 
-        error: error.response?.data?.error || 'Error al iniciar sesión' 
-      };
-    } finally {
-      setLoading(false);
+      
+      // Asegurar que no estemos autenticados
+      setUser(null);
+      setIsAuthenticated(false);
+      
+      // Manejo específico de diferentes tipos de errores
+      if (error.code === 'ERR_NETWORK') {
+        return { 
+          success: false, 
+          error: 'No se puede conectar con el servidor. Verifica tu conexión a internet.' 
+        };
+      } else if (error.response?.data) {
+        return { 
+          success: false, 
+          error: error.response.data.error || 'Error al iniciar sesión',
+          errors: error.response.data.errors || []
+        };
+      } else {
+        return { 
+          success: false, 
+          error: 'Error inesperado. Por favor intenta de nuevo.' 
+        };
+      }
     }
   };
 
   // Función de registro
   const register = async (userData) => {
     try {
-      setLoading(true);
+      // No usar setLoading(true) aquí para evitar interferir con las rutas
       console.log('📝 Intentando registro con:', userData.email);
       
       const response = await authService.register(userData);
@@ -89,13 +106,29 @@ export const AuthProvider = ({ children }) => {
       return { success: true, data: response };
     } catch (error) {
       console.error('❌ Error en registro:', error);
-      return { 
-        success: false, 
-        error: error.response?.data?.error || 'Error al registrarse',
-        errors: error.response?.data?.errors || []
-      };
-    } finally {
-      setLoading(false);
+      
+      // Asegurar que no estemos autenticados
+      setUser(null);
+      setIsAuthenticated(false);
+      
+      // Manejo específico de diferentes tipos de errores
+      if (error.code === 'ERR_NETWORK') {
+        return { 
+          success: false, 
+          error: 'No se puede conectar con el servidor. Verifica tu conexión a internet.' 
+        };
+      } else if (error.response?.data) {
+        return { 
+          success: false, 
+          error: error.response.data.error || 'Error al registrarse',
+          errors: error.response.data.errors || []
+        };
+      } else {
+        return { 
+          success: false, 
+          error: 'Error inesperado. Por favor intenta de nuevo.' 
+        };
+      }
     }
   };
 
