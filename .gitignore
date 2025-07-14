@@ -151,6 +151,11 @@ logs
 *.backup
 *.orig
 
+# Prisma specific files
+/generated/prisma
+prisma/dev.db
+prisma/dev.db-journal
+
 # Package files
 *.tar.gz
 *.zip
