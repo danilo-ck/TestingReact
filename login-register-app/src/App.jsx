@@ -11,6 +11,7 @@ function App() {
   const [password, setPassword] = useState('');
   const [mode, setMode] = useState('login'); // puede ser 'login' o 'register'
   const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(false); // Estado de carga
 
   // Cambia entre login y registro
   const toggleMode = () => {
@@ -22,8 +23,14 @@ function App() {
   };
 
   // Valida los datos del formulario antes de enviar
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     console.log('Enviando formulario...');
+    setLoading(true); // Activar estado de carga
+    setMessage(''); // Limpiar mensajes anteriores
+    
+    // Simular delay de red realista
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    
     let isValid = true;
     let errors = [];
 
@@ -62,39 +69,70 @@ function App() {
       console.log('Errores encontrados:', errors);
       setMessage(`❌ ${errors.join(', ')}`);
     }
+    
+    setLoading(false); // Desactivar estado de carga
   };
 
   return (
     <Container>
-      <h2>{mode === 'login' ? 'Iniciar sesión' : 'Registrarse'}</h2>
-      <TextInput
-        label="Correo electrónico:"
-        value={email}
-        onChange={(e) => {
-          console.log('Email cambiado:', e.target.value);
-          setEmail(e.target.value);
-        }}
-      />
-      <TextInput
-        label="Contraseña:"
-        value={password}
-        type="password"
-        onChange={(e) => {
-          console.log('Contraseña cambiada');
-          setPassword(e.target.value);
-        }}
-      />
-      <div style={{ marginBottom: '1rem' }}>
-        <Button text={mode === 'login' ? 'Entrar' : 'Registrarse'} onClick={handleSubmit} />
+      {/* Título principal con tipografía mejorada */}
+      <h1 className="text-primary-600 font-bold text-center mb-2 text-3xl tracking-tight">
+        {mode === 'login' ? 'Iniciar sesión' : 'Registrarse'}
+      </h1>
+      
+      {/* Subtítulo descriptivo */}
+      <p className="text-gray-600 text-center mb-8 text-sm">
+        {mode === 'login' 
+          ? 'Accede a tu cuenta para continuar' 
+          : 'Crea tu cuenta para comenzar'
+        }
+      </p>
+      
+      {/* Formulario con mejor espaciado */}
+      <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
+        <TextInput
+          label="Correo electrónico:"
+          value={email}
+          onChange={(e) => {
+            console.log('Email cambiado:', e.target.value);
+            setEmail(e.target.value);
+          }}
+        />
+        <TextInput
+          label="Contraseña:"
+          value={password}
+          type="password"
+          onChange={(e) => {
+            console.log('Contraseña cambiada');
+            setPassword(e.target.value);
+          }}
+        />
+      </form>
+
+      {/* Botones con espaciado mejorado */}
+      <div className="space-y-3 mt-6">
+        <Button 
+          text={mode === 'login' ? 'Entrar' : 'Registrarse'} 
+          onClick={handleSubmit}
+          variant="primary"
+          loading={loading}
+        />
         <Button
           text={mode === 'login' ? '¿No tienes cuenta?' : '¿Ya tienes cuenta?'}
           onClick={toggleMode}
+          variant="ghost"
         />
       </div>
       {message && (
-        <p style={{ backgroundColor: '#eee', padding: '0.5rem', borderRadius: '5px' }}>
+        <div className={`
+          mt-4 p-4 rounded-lg text-sm font-medium
+          ${message.includes('✅') 
+            ? 'bg-green-50 text-green-700 border border-green-200' 
+            : 'bg-red-50 text-red-700 border border-red-200'
+          }
+        `}>
           {message}
-        </p>
+        </div>
       )}
     </Container>
   );
