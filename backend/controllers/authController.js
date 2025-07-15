@@ -10,7 +10,9 @@ class AuthController {
   // Registro de usuario
   static async register(req, res) {
     try {
-      console.log('Intento de registro:', req.body);
+      // Log seguro sin mostrar la contraseña
+      const { password, ...safeData } = req.body;
+      console.log('Intento de registro:', safeData);
 
       // Validar datos de entrada
       const createUserDTO = new CreateUserDTO(req.body);

@@ -1,7 +1,41 @@
 import React from 'react';
 import Button from './Button.jsx';
 
-const Header = ({ user, onLogout }) => {
+const Header = ({ user, onLogout, isLanding = false, onNavigateToLogin }) => {
+  if (isLanding) {
+    // Header para Landing Page
+    return (
+      <header className="bg-white shadow-sm border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <div className="flex items-center">
+              {/* Logo/Brand */}
+              <div className="text-xl font-bold text-primary-600">
+                ReservApp
+              </div>
+            </div>
+            
+            <div className="flex items-center space-x-4">
+              <Button
+                text="Iniciar sesión"
+                onClick={onNavigateToLogin}
+                variant="ghost"
+                fullWidth={false}
+              />
+              <Button
+                text="Registrarse"
+                onClick={onNavigateToLogin}
+                variant="primary"
+                fullWidth={false}
+              />
+            </div>
+          </div>
+        </div>
+      </header>
+    );
+  }
+
+  // Header para usuarios autenticados (versión original)
   return (
     <header className="bg-white shadow-sm border-b">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

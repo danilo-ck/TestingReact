@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import TextInput from '../components/TextInput.jsx';
 import Button from '../components/Button.jsx';
 import Container from '../components/Container.jsx';
+import MessageDisplay from '../components/MessageDisplay.jsx';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -128,24 +129,7 @@ const Login = () => {
       </div>
 
       {/* Mensajes */}
-      {message && (
-        <div className="mt-4 p-4 rounded-lg text-sm font-medium bg-green-50 text-green-700 border border-green-200">
-          {message}
-        </div>
-      )}
-      
-      {errors.length > 0 && (
-        <div className="mt-4 p-4 rounded-lg text-sm font-medium bg-red-50 text-red-700 border border-red-200">
-          <div className="space-y-2">
-            <div className="font-semibold">❌ Errores encontrados:</div>
-            {errors.map((error, index) => (
-              <div key={index} className="text-sm pl-4">
-                • {error}
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
+      <MessageDisplay message={message} errors={errors} />
     </Container>
   );
 };

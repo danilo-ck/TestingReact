@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
+import LandingPage from './pages/LandingPage.jsx';
 import Login from './pages/Login.jsx';
 import Home from './pages/Home.jsx';
 
@@ -62,9 +63,19 @@ function App() {
       <Router>
         <div className="App">
           <Routes>
-            {/* Ruta pública - Login/Register */}
+            {/* Ruta pública - Landing Page */}
             <Route 
               path="/" 
+              element={
+                <PublicRoute>
+                  <LandingPage />
+                </PublicRoute>
+              } 
+            />
+            
+            {/* Ruta pública - Login/Register */}
+            <Route 
+              path="/login" 
               element={
                 <PublicRoute>
                   <Login />
