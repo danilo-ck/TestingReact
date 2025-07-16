@@ -80,39 +80,7 @@ Username: demo_user
 - **🚀 Startups** que busquen un boilerplate de autenticación
 - **👨‍💻 Desarrolladores** que quieran un ejemplo de mejores prácticas
 
-## 🚀 Tecnologías utilizadasAplicación completa de autenticación desarrollada con React, Node.js, Express y Prisma. Incluye sistema de login/registro, gestión de usuarios y una interfaz moderna con Tailwind CSS.
-
-## � Capturas de pantalla
-
-### 🏠 Landing Page
-![Landing Page](./docs/screenshots/landing-page.png)
-*Página de inicio con diseño moderno y llamadas a la acción*
-
-### 🔐 Sistema de Autenticación
-![Login](./docs/screenshots/login.png)
-*Formulario de login con validaciones en tiempo real*
-
-![Register](./docs/screenshots/register.png)
-*Registro de nuevos usuarios con feedback visual*
-
-### 🏡 Dashboard de Usuario
-![Dashboard](./docs/screenshots/dashboard.png)
-*Panel principal para usuarios autenticados*
-
-### 👤 Gestión de Perfil
-![Profile Management](./docs/screenshots/profile-management.png)
-*Formularios para actualizar username y contraseña*
-
-### 📱 Diseño Responsive
-<div style="display: flex; gap: 10px;">
-  <img src="./docs/screenshots/mobile-landing.png" alt="Mobile Landing" width="200">
-  <img src="./docs/screenshots/mobile-login.png" alt="Mobile Login" width="200">
-  <img src="./docs/screenshots/mobile-dashboard.png" alt="Mobile Dashboard" width="200">
-</div>
-
-*Interfaz completamente optimizada para dispositivos móviles*
-
-## �🚀 Tecnologías utilizadas
+##�🚀 Tecnologías utilizadas
 
 ### Frontend
 - **React 19.1.0** - Framework principal
@@ -455,7 +423,7 @@ Si encuentras un bug, por favor abre un [issue](https://github.com/danilo-ck/Tes
 
 **Danilo CK**
 - GitHub: [@danilo-ck](https://github.com/danilo-ck)
-- LinkedIn: [Tu LinkedIn](https://linkedin.com/in/tu-perfil)
+- LinkedIn: [Mi LinkedIn](https://linkedin.com/in/daniel-farré-avilés)
 
 ## ⭐ Dale una estrella
 
