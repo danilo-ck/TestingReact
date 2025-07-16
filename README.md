@@ -1,8 +1,118 @@
 # Login Register App - Full Stack
 
+<div align="center">
+
+![React](https://img.shields.io/badge/React-19.1.0-61DAFB?style=for-the-badge&logo=react&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-Latest-339933?style=for-the-badge&logo=node.js&logoColor=white)
+![Express](https://img.shields.io/badge/Express-5.1.0-000000?style=for-the-badge&logo=express&logoColor=white)
+![Prisma](https://img.shields.io/badge/Prisma-6.11.1-2D3748?style=for-the-badge&logo=prisma&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4.17-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+
+</div>
+
 Aplicación completa de autenticación desarrollada con React, Node.js, Express y Prisma. Incluye sistema de login/registro, gestión de usuarios y una interfaz moderna con Tailwind CSS.
 
-## 🚀 Tecnologías utilizadas
+## 📸 Capturas de pantalla
+
+### 🏠 Landing Page
+![Landing Page](./docs/screenshots/docs/screenshots/Screenshot from 2025-07-16 09-30-46.png)
+*Página de inicio con diseño moderno y llamadas a la acción*
+
+### 🔐 Sistema de Autenticación
+![Login](./docs/screenshots/docs/screenshots/Screenshot from 2025-07-16 09-30-53.png)
+*Formulario de login con validaciones en tiempo real*
+
+![Register](./docs/screenshots/docs/screenshots/Screenshot from 2025-07-16 09-30-58.png)
+*Registro de nuevos usuarios con feedback visual*
+
+### 🏡 Dashboard de Usuario
+![Dashboard](./docs/screenshots/docs/screenshots/Screenshot from 2025-07-16 09-31-41.png)
+*Panel principal para usuarios autenticados*
+
+### 👤 Gestión de Perfil
+![Profile Management](./docs/screenshots/docs/screenshots/Screenshot from 2025-07-16 09-31-46.png)
+*Formularios para actualizar username y contraseña*
+
+### 📱 Diseño Responsive
+<div style="display: flex; gap: 10px;">
+  <img src="./docs/screenshots/mobile-landing.png" alt="Mobile Landing" width="200">
+  <img src="./docs/screenshots/mobile-login.png" alt="Mobile Login" width="200">
+  <img src="./docs/screenshots/mobile-dashboard.png" alt="Mobile Dashboard" width="200">
+</div>
+
+## 🔗 Demo en vivo
+
+> **Nota**: Para probar la aplicación, necesitarás clonar el repositorio y ejecutarlo localmente siguiendo las instrucciones de instalación.
+
+### 🧪 Datos de prueba
+Para facilitar las pruebas, puedes usar estos datos de ejemplo:
+```
+Email: demo@example.com
+Password: demo123456
+Username: demo_user
+```
+
+### 🎯 Flujo de prueba recomendado
+1. 📄 Explora la **Landing Page** con todas sus secciones
+2. 🔐 Prueba el **registro** de un nuevo usuario
+3. 🔑 Haz **login** con las credenciales creadas
+4. 🏠 Navega por el **dashboard** de usuario
+5. ⚙️ Actualiza tu **username** y **contraseña**
+6. 📱 Prueba la **responsividad** en diferentes dispositivos
+
+## ⭐ Características destacadas
+
+<div align="center">
+
+| 🎨 **Frontend** | 🔧 **Backend** | 🔒 **Seguridad** |
+|----------------|----------------|------------------|
+| React 19 + Hooks | Express.js API | JWT Authentication |
+| Tailwind CSS | Prisma ORM | bcrypt Encryption |
+| React Router | SQLite Database | Input Validation |
+| Axios Integration | RESTful Endpoints | Protected Routes |
+| Responsive Design | Error Handling | CORS Configuration |
+
+</div>
+
+### 🎯 Casos de uso
+- **🏢 Aplicaciones empresariales** que necesiten autenticación robusta
+- **📚 Proyectos educativos** para aprender full-stack development
+- **🚀 Startups** que busquen un boilerplate de autenticación
+- **👨‍💻 Desarrolladores** que quieran un ejemplo de mejores prácticas
+
+## 🚀 Tecnologías utilizadasAplicación completa de autenticación desarrollada con React, Node.js, Express y Prisma. Incluye sistema de login/registro, gestión de usuarios y una interfaz moderna con Tailwind CSS.
+
+## � Capturas de pantalla
+
+### 🏠 Landing Page
+![Landing Page](./docs/screenshots/landing-page.png)
+*Página de inicio con diseño moderno y llamadas a la acción*
+
+### 🔐 Sistema de Autenticación
+![Login](./docs/screenshots/login.png)
+*Formulario de login con validaciones en tiempo real*
+
+![Register](./docs/screenshots/register.png)
+*Registro de nuevos usuarios con feedback visual*
+
+### 🏡 Dashboard de Usuario
+![Dashboard](./docs/screenshots/dashboard.png)
+*Panel principal para usuarios autenticados*
+
+### 👤 Gestión de Perfil
+![Profile Management](./docs/screenshots/profile-management.png)
+*Formularios para actualizar username y contraseña*
+
+### 📱 Diseño Responsive
+<div style="display: flex; gap: 10px;">
+  <img src="./docs/screenshots/mobile-landing.png" alt="Mobile Landing" width="200">
+  <img src="./docs/screenshots/mobile-login.png" alt="Mobile Login" width="200">
+  <img src="./docs/screenshots/mobile-dashboard.png" alt="Mobile Dashboard" width="200">
+</div>
+
+*Interfaz completamente optimizada para dispositivos móviles*
+
+## �🚀 Tecnologías utilizadas
 
 ### Frontend
 - **React 19.1.0** - Framework principal
@@ -107,7 +217,29 @@ TestingReact/
 
 ## 🛠️ Instalación y configuración
 
-### Prerequisitos
+### ⚡ Instalación rápida
+
+```bash
+# 1. Clonar el repositorio
+git clone https://github.com/danilo-ck/TestingReact.git
+cd TestingReact
+
+# 2. Instalar dependencias del backend
+cd backend
+npm install
+
+# 3. Configurar la base de datos
+npm run db:generate
+npm run db:push
+
+# 4. Instalar dependencias del frontend
+cd ../frontend
+npm install
+
+# 5. ¡Listo! Ahora puedes ejecutar la aplicación
+```
+
+### 📋 Prerequisitos
 - Node.js (versión 16 o superior)
 - npm o yarn
 
@@ -140,7 +272,23 @@ npm run db:push
 
 ## 🚀 Ejecución del proyecto
 
-### Desarrollo
+### 🔥 Desarrollo (modo dev)
+
+**Terminal 1 - Backend:**
+```bash
+cd backend
+npm run dev
+# ✅ Servidor corriendo en http://localhost:5000
+```
+
+**Terminal 2 - Frontend:**
+```bash
+cd frontend
+npm start
+# ✅ Aplicación abierta en http://localhost:3000
+```
+
+### 🎯 Producción
 1. **Iniciar el backend**
 ```bash
 cd backend
@@ -183,6 +331,59 @@ npm start
 - `npm run db:push` - Sincroniza el esquema con la base de datos
 - `npm run db:migrate` - Ejecuta migraciones
 - `npm run db:studio` - Abre Prisma Studio
+
+## 🔧 Troubleshooting
+
+### Problemas comunes
+
+<details>
+<summary>❌ Error: "Cannot connect to database"</summary>
+
+**Solución:**
+```bash
+cd backend
+npm run db:generate
+npm run db:push
+```
+</details>
+
+<details>
+<summary>❌ Error: "Port 3000 already in use"</summary>
+
+**Solución:**
+- Cambia el puerto en `frontend/package.json` o
+- Mata el proceso: `kill -9 $(lsof -t -i:3000)`
+</details>
+
+<details>
+<summary>❌ Error: "CORS policy"</summary>
+
+**Solución:**
+Verifica que el backend esté ejecutándose en `http://localhost:5000`
+</details>
+
+<details>
+<summary>❌ La aplicación no carga después del build</summary>
+
+**Solución:**
+```bash
+cd frontend
+rm -rf build node_modules
+npm install
+npm run build
+```
+</details>
+
+### 📚 FAQs
+
+**Q: ¿Puedo usar otra base de datos además de SQLite?**
+A: Sí, solo cambia el provider en `backend/prisma/schema.prisma` y actualiza la URL de conexión.
+
+**Q: ¿Cómo añado más campos al usuario?**
+A: Modifica el modelo User en `schema.prisma`, ejecuta `npm run db:push` y actualiza los DTOs.
+
+**Q: ¿Puedo usar este proyecto como base para otros?**
+A: ¡Absolutamente! Está diseñado como boilerplate reutilizable.
 
 ## 🔒 Seguridad
 
@@ -233,9 +434,43 @@ La aplicación está completamente optimizada para:
 - [ ] **User roles** - Sistema de roles y permisos
 - [ ] **Profile photos** - Upload de imágenes de perfil
 
+## 🤝 Contribución
+
+¡Las contribuciones son bienvenidas! Si quieres contribuir:
+
+1. 🍴 Fork el proyecto
+2. 🌿 Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. 💾 Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. 📤 Push a la rama (`git push origin feature/AmazingFeature`)
+5. 🔄 Abre un Pull Request
+
+### 🐛 Reportar bugs
+Si encuentras un bug, por favor abre un [issue](https://github.com/danilo-ck/TestingReact/issues) con:
+- Descripción detallada del problema
+- Pasos para reproducirlo
+- Screenshots si es posible
+- Tu entorno (OS, Node version, etc.)
+
+## 👨‍💻 Autor
+
+**Danilo CK**
+- GitHub: [@danilo-ck](https://github.com/danilo-ck)
+- LinkedIn: [Tu LinkedIn](https://linkedin.com/in/tu-perfil)
+
+## ⭐ Dale una estrella
+
+Si este proyecto te fue útil, ¡considera darle una estrella! ⭐
+
 ## 📄 Licencia
 
 Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
-- [ ] API de autenticación
-- [ ] Conexión frontend-backend
-This repository is only an exercise for trying React
+
+---
+
+<div align="center">
+
+**¿Te gustó el proyecto? ¡Dale una ⭐ en GitHub!**
+
+Made with ❤️ by [Danilo CK](https://github.com/danilo-ck)
+
+</div>
