@@ -15,22 +15,22 @@ Aplicación completa de autenticación desarrollada con React, Node.js, Express 
 ## 📸 Capturas de pantalla
 
 ### 🏠 Landing Page
-![Landing Page](./docs/screenshots/docs/screenshots/Screenshot from 2025-07-16 09-30-46.png)
+![Landing Page](./docs/screenshots/landing.png)
 *Página de inicio con diseño moderno y llamadas a la acción*
 
 ### 🔐 Sistema de Autenticación
-![Login](./docs/screenshots/docs/screenshots/Screenshot from 2025-07-16 09-30-53.png)
+![Login](./docs/screenshots/login.png)
 *Formulario de login con validaciones en tiempo real*
 
-![Register](./docs/screenshots/docs/screenshots/Screenshot from 2025-07-16 09-30-58.png)
+![Register](./docs/screenshots/register.png)
 *Registro de nuevos usuarios con feedback visual*
 
 ### 🏡 Dashboard de Usuario
-![Dashboard](./docs/screenshots/docs/screenshots/Screenshot from 2025-07-16 09-31-41.png)
+![Dashboard](./docs/screenshots/home.png)
 *Panel principal para usuarios autenticados*
 
 ### 👤 Gestión de Perfil
-![Profile Management](./docs/screenshots/docs/screenshots/Screenshot from 2025-07-16 09-31-46.png)
+![Profile Management](./docs/screenshots/home-forms.png)
 *Formularios para actualizar username y contraseña*
 
 ### 📱 Diseño Responsive
